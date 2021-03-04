@@ -1,0 +1,210 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/drop_down.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/button_hover_effect.css' %}">
+  <style type="text/css">
+    .citizenname
+    {
+        font-size: 30px;
+        font-family: "Book Antiqua";
+        color: royalblue;
+        padding-top: 8%;
+        margin-left: -5%;
+    }
+    input
+    {
+        border: none;
+        border-bottom: 1px solid black;
+    }
+     .logo  /*city administration logo*/
+    {
+          color: black;
+          font-size: 15px;
+          font-family: Cambria;
+          margin-left: 8%;
+          margin-top: -1.5%
+    }
+    /*Main logo and Home Button CSS coding*/
+nav{
+    width: 100%;
+    overflow: visible;
+    position: fixed;
+    top: 0;
+    box-shadow: 1px 2px 4px gray;
+    background: rgba(222, 222, 222, 0.2);
+
+}
+.nav1{
+
+    background-color: black;
+    margin-bottom: 0px;
+    color: white;
+    height: 382px;
+    width: 100%;
+}
+ul
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 53%;
+    width: 55%;
+}
+ul li
+{
+    list-style: none;
+    width: 20%;
+
+}
+ul li a
+{
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    margin: 0px 0;
+    text-decoration: none;
+    color: #262626;
+    font-weight: bold;
+    transition: .5s;
+}
+ul li a:hover
+{
+    color: #ffffff;
+}
+ul li a:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    transform: scaleY(2);
+    opacity: 0;
+    transition: 0.5s;
+    z-index: -1;
+}
+ul li a:hover:before
+{
+    transform: scaleY(1.2);
+    opacity: 1;
+}
+ul li a:after
+{
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transform: scale(0);
+    transition: 0.5s;
+    z-index: -1;
+}
+ul li a:hover:after
+{
+    transform: scale(1);
+}
+
+
+ section
+        {
+         width: 100%;
+         height: 100%;
+        }
+ section .layer12
+ {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: url("{% static 'images/aboutus/map-2450477_1920.jpg' %}");
+     /*background: #86bbbe;*/
+     background-attachment: fixed;
+     background-position: center;
+     background-size: cover;
+     transition: 2s;
+ }
+  section .layer1
+  {
+      position: absolute;
+      margin-top: 25%;
+      margin-left: 50%;
+      transform: translate(-50%,-50%);
+      width: 390px;
+      height: 330px;
+      background-position: center;
+      background-size: cover;
+      z-index: 1;
+      transition: 2s;
+      border: none;
+      background-color: transparent;
+  }
+
+   .layer1:hover ~ .layer12
+   {
+       filter:blur(10px);
+   }
+   .layer1:hover
+   {
+       box-shadow: 0 25px 60px rgba(0,0,0,.8);
+   }
+
+
+    </style>
+</head>
+<body>
+ <section>
+   <div class="layer1">
+     <div style="border: 2px solid black;width:360px;height: 300px;margin-top: 3.7%;margin-left: 3%;">
+       <div style="margin-top: -5%;margin-left: 27%;">
+         <form action="{% url 'get_citilogin' %}" method="post">
+           {% csrf_token %}
+               <h2 class="citizenname">Citizen Login</h2>
+               <input type="text" name="emailid" placeholder="Enter User id" required><br><br>
+               <input type="password" name="password" placeholder="Password" required align="center"><br><br>
+               <button class="button" type="submit" style="padding : -25px;height: 30px;width: 100px;margin-left: -10%;margin-top: -2%"><span class="a">Login</span></button>
+         </form>
+         <h4 style="margin-top: 20%;color: black">If you don't have account?</h4>
+         <a href="{% url 'registeration' %}" style="font-size: 18px;margin-left: 18%;margin-top: 0%;text-decoration: none;color: turquoise;"><b>Register</b></a>
+        {% if message %}
+         <h1 style="font-family: 'Gabriola';font-size: 200%;color: deeppink;margin-top: 18%;margin-left: 9%"><b>{{ message }}</b></h1>
+        {% endif %}
+       </div>
+     </div>
+   </div>
+   <div class="layer12">
+     <nav class="nav-bottom">
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a> </li>
+          <div class="dropdown">
+            <li><a class="a1">Login<i class="down" id="i"></i> </a></li>
+               <div class="dropdown-content" id="dropdiv">
+                   <!--p><a class="a1" href="{% url 'citilogin' %}">Citizen Login</a></p-->
+                   <p><a class="a1" href="{% url 'adlogin' %}">Admin Login</a> </p>
+               </div>
+          </div>
+      </ul>
+
+             <h2 style="margin-left: 7%">
+                <img src="{% static 'images/city_logo/copyright.png' %}" style="height: 70px;width: 70px">
+                <img src="{% static 'images/city_logo/icon.png' %}" style="height: 70px;width: 70px;margin-left: -2%">
+                 <h4 class="logo">City Administation</h4>
+             </h2>
+     </nav>
+   </div>
+ </section>
+</body>
+</html>

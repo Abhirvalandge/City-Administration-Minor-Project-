@@ -1,0 +1,227 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/button_hover_effect.css' %}">
+
+  <style type="text/css">
+    .logo  /*city administration logo*/
+    {
+          color: black;
+          font-size: 15px;
+          font-family: Cambria;
+          margin-left: 8%;
+          margin-top: -1.5%
+    }
+    /*Main logo and Home Button CSS coding*/
+nav{
+    width: 100%;
+    overflow: visible;
+    position: fixed;
+    top: 0;
+    box-shadow: 1px 2px 4px gray;
+    background: rgba(222, 222, 222, 0.2);
+
+}
+.nav1{
+
+    background-color: black;
+    margin-bottom: 0px;
+    color: white;
+    height: 382px;
+    width: 100%;
+}
+ul
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 65%;
+    width: 55%;
+}
+ul li
+{
+    list-style: none;
+    width: 20%;
+
+}
+ul li a
+{
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    margin: 0px 0;
+    text-decoration: none;
+    color: #262626;
+    font-weight: bold;
+    transition: .5s;
+}
+ul li a:hover
+{
+    color: #ffffff;
+
+}
+ul li a:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    transform: scaleY(2);
+    opacity: 0;
+    transition: 0.5s;
+    z-index: -1;
+}
+ul li a:hover:before
+{
+    transform: scaleY(1.2);
+    opacity: 1;
+}
+ul li a:after
+{
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transform: scale(0);
+    transition: 0.5s;
+    z-index: -1;
+}
+ul li a:hover:after
+{
+    transform: scale(1);
+}
+
+    /*Registration Form CSS Coding*/
+   .box
+   {
+       border: 1px solid red;
+       width: 200px;
+       height: 30px;
+       alignment: left;
+       margin-right: 1500px;
+   }
+   .fullbox
+   {
+          height: 350px;
+          width: 700px;
+          border: 0px solid black;
+   }
+   .registrationbox
+   {
+       height: 63%;
+       width: 94%;
+       border: 0px solid red;
+       margin-top: 12%;
+       margin-left: 3%;
+       padding-top: 2%;
+       text-align: center;
+       box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+       border-radius: 2px;
+   }
+   .personalbox
+   {
+       padding-left: 4%;
+       padding-top: -1%;
+   }
+   .addressbox
+   {
+       border: 0px solid black;
+       margin-left: 48%;
+       margin-top: -18%
+   }
+   .contactbox
+   {
+       margin-bottom: 200px;
+       margin-left: 75%;
+       margin-top: -14.5%;
+       border: 0px solid black
+   }
+         .citizenname
+    {
+        font-size: 35px;
+        font-family: Cambria;
+        color: royalblue;
+    }
+    input
+    {
+        border: none;
+        border-bottom: 1px solid black;
+    }
+  </style>
+</head>
+ <body background="{% static 'images/aboutus/digital-paper-4799576_1920.jpg' %}" style="background-size: cover">
+  <nav class="nav-bottom">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a> </li>
+        </ul>
+             <h2 style="margin-left: 7%">
+                <img src="{% static 'images/city_logo/copyright.png' %}" style="height: 70px;width: 70px">
+                <img src="{% static 'images/city_logo/icon.png' %}" style="height: 70px;width: 70px;margin-left: -2%">
+                 <h4 class="logo">City Administation</h4>
+             </h2>
+
+  </nav>
+
+<form action="{% url 'save_details' %}" method="post">
+          {% csrf_token %}
+
+  <div class="registrationbox">
+      <div align="center" class="citizenname"><b>Registration Form</b></div>
+    <div align="center" class="personalbox">
+      <h2 align="left" class="box" style="font-family: Cambria;">Personal Details</h2>
+      <h3 align="left" style="border: 0px solid black">
+          Name <input type="text" placeholder="First Name" name="name" style="margin-left: 200px" required>
+          <input type="text" placeholder="Last Name" name="lname" required><br><br>
+          Father's Name <input type="text" placeholder="First Name" name="fname" style="margin-left: 129px" required>
+          <input type="text" placeholder="Last Name" name="f_lname" required>
+      </h3>
+      <h3 align="left">Date of Birth<input type="date" style="margin-left: 147px" name="dob" required></h3>
+      <h3 align="left">Gender<tt><input type="radio"  style="margin-left: 200px" name="gender" value="male">Male
+          <input type="radio" value="female" name="gender">Female</tt></h3>
+      <h3 align="left">Nationality<tt><input type="radio" style="margin-left: 170px" name="nationality" value="Indian">Indian
+          <input type="radio" name="nationality" value="OCI Card Holder" required>OCI Card Holder</tt></h3>
+    </div>
+
+    <div align="center" class="addressbox">
+      <h2 align="left" class="box" style="font-family: Cambria;">Address Details<br><br> </h2>
+         <h3 align="left" style="border: 0px solid black">
+          <input type="number" placeholder="House No." name="houseno" required> <input type="text" placeholder="Address" name="address" required><br><br>
+          <input type="text" placeholder="City" name="city" required>
+          <input type="text" placeholder="Pin Code" name="pin" required><br><br>
+          <input type="text" placeholder="State" name="state" required>
+          <input type="text" placeholder="District" name="district" required><br><br>
+         </h3>
+    </div>
+
+    <div class="contactbox">
+      <h2 align="left" class="box" style="font-family: Cambria;">Contact Details<br><br></h2>
+          <h3 align="left" style="border: 0px solid black">
+            <input type="number" placeholder="Mobile No." name="mobileno" required><br><br>
+            <input type="email" placeholder="Enter Email Address" name="emailid" required><br><br>
+            <input type="password" placeholder="Enter Password" name="password" required>
+          </h3>
+    </div>
+         <div>
+             <button class="button" style="margin-top: 9%;margin-left: -2%" type="submit"><span class="a">Register</span></button>
+         </div>
+   </div>
+    </form>
+
+
+
+ </body>
+</html>

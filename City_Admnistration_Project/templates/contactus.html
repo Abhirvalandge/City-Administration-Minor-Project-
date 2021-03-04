@@ -1,0 +1,79 @@
+{% load staticfiles %}
+<html>
+  <style type="text/css">
+   .height
+   {
+       height: 50px;
+   }
+   .font
+   {
+       font-size: 20px;
+       width: 300px;
+   }
+   .contactus
+   {
+       height: 60%;
+       width: 50%;
+       margin-top: 5%;
+       border: 1px solid white;
+       box-shadow: 10px 0 10px #999999;
+       border-bottom-right-radius: 00%;
+       border-top-right-radius: 00%;
+
+
+   }
+   .img-wrap{
+       width: 26%;
+       height: 45%;
+       alignment: right;
+       margin-left: 60%;
+       margin-top: -24%;
+   }
+   .img-wrap img
+   {
+       width: 100%;
+       padding: 10px;
+       border-radius: 50%;
+       box-shadow: 0 0 10px #999999;
+   }
+  </style>
+ <body>
+  <table border="1" align="center">
+    <tr>
+        <th align="left" colspan="5" height="100" width="1500"><h1>City Administration</h1></th>
+    </tr>
+    <tr class="height">
+        <th class="font"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></th>
+        <th class="font">Citizen Services</th>
+        <th class="font"><a href="{% url 'login' %}" style="text-decoration: none">Login</a></th>
+        <th class="font">Contact Us</th>
+        <th class="font">About Us</th>
+    </tr>
+  </table>
+<div>
+ <div>
+  <div class="contactus">
+        <h1>CONTACT US</h1>
+   <div>
+       <h2><b>Address</b></h2>
+         <p><b>Burhanpur Municipal Corporation Office, Near Stadium Ground, Burhanpur[M.P.]<br> Pincode:450331</b></p>
+   </div>
+
+   <div>
+       <h2>Phone No.</h2>
+    <p><b>Sourabh Landge:&nbsp;8770341439<br>Abhirva Landge:&nbsp;9131994504</b></p>
+   </div>
+
+   <div>
+         <h2>Email</h2>
+         <p><b>Email: lsourabh84@gmail.com<br>Email: abhirvalandge44@gmail.com</b></p>
+   </div>
+  </div>
+ </div>
+ <div class="img-wrap">
+       <img src="{% static 'images/backgrounds/paper-787635_1920.jpg' %}"></img>
+ </div>
+</div>
+
+ </body>
+</html>

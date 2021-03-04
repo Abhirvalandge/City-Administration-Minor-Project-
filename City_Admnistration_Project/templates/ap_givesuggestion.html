@@ -1,0 +1,209 @@
+{% load staticfiles %}
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    .share_image /*Image box*/
+     {
+         height: 100%;
+         width: 100%;
+         margin-top: -8%;
+         margin-left: 8%;
+         box-shadow: 7px 7px 5px 5px grey;
+         border-bottom-left-radius: 10%;
+         border-top-right-radius: 10%;
+     }
+    .input_box   /*Share idea all content*/
+    {
+        height: 80%;
+        width: 50%;
+        margin-left: 50%;
+        margin-top: -26%;
+    }
+    .img_border  /* border box */
+    {
+         border: 6px solid black;
+         height: 40%;
+         width: 25%;
+         margin-top: 18%;
+         margin-left: 8%;
+         border-bottom-left-radius: 10%;
+
+    }
+   .logo
+    {
+          color: black;
+          font-size: 15px;
+          font-family: Cambria;
+          margin-left: 8%;
+          margin-top: -1.5%
+    }
+    input
+    {
+        border: none;
+        border-bottom: 1px solid black;
+    }
+    button
+    {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 8px 20px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+      button:hover
+      {
+          background-color: #52cd03;
+      }
+html{
+    scroll-behavior: smooth;
+}
+
+nav{
+    width: 100%;
+    overflow: visible;
+    position: fixed;
+    top: 0;
+    box-shadow: 1px 2px 4px gray;
+    background: transparent;
+
+}
+.nav1{
+
+    background-color: black;
+    margin-bottom: 0px;
+    color: white;
+    height: 382px;
+    width: 100%;
+}
+ul
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 53%;
+    width: 55%;
+}
+ul li
+{
+    list-style: none;
+    width: 20%;
+
+}
+ul li a
+{
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    margin: 0px 0;
+    text-decoration: none;
+    color: #262626;
+    font-weight: bold;
+    transition: .5s;
+}
+ul li a:hover
+{
+    color: #ffffff;
+
+}
+ul li a:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    transform: scaleY(2);
+    opacity: 0;
+    transition: 0.5s;
+    z-index: -1;
+}
+ul li a:hover:before
+{
+    transform: scaleY(1.2);
+    opacity: 1;
+}
+ul li a:after
+{
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transform: scale(0);
+    transition: 0.5s;
+    z-index: -1;
+}
+ul li a:hover:after
+{
+    transform: scale(1);
+}
+
+      #name_issuecomp
+      {
+          font-family: Gabriola;
+          font-size: 50px;
+          color: deeppink;
+          margin-top: 10%;
+          margin-left: 45%;
+          alignment: center;
+      }
+
+  </style>
+ <body background="{% static 'images/aboutus/dandelion-background-4756992_1920.jpg' %}" style="background-size: cover">
+      <nav class="nav-bottom">
+          <ul>
+             <li><a href="{% url 'main_administrator' %}">Back</a> </li>
+             <li><a href="{% url 'admin_logout' %}">Logout</a></li>
+          </ul>
+             <h2 style="margin-left: 7%">
+                <img src="{% static 'images/city_logo/copyright.png' %}" style="height: 70px;width: 70px">
+                <img src="{% static 'images/city_logo/icon.png' %}" style="height: 70px;width: 70px;margin-left: -2%">
+                 <h4 class="logo">City Administation</h4>
+             </h2>
+
+      </nav>
+
+          <div id="name_issuecomp"><b>Give Suggestion</b></div>
+ {% if data %}
+   <table border="1" style="border-style:none;width: 100%">
+     <tr bgcolor="black" style="height: 70px;font-family: 'Cambria Math';font-size: 22px;color: paleturquoise;">
+         <th width="100">Name</th>
+         <th width="100">Project Name</th>
+         <th width="100">Email</th>
+         <th width="100">Address</th>
+         <th width="100">Mobile_NO</th>
+         <th width="250">Suggestion</th>
+         <th width="100">Date/Time</th>
+     </tr>
+     {% for x in data %}
+         <tr style="font-size: 18px">
+             <th width="100">{{ x.g_name }}</th>
+             <th width="100">{{ x.g_projectname }}</th>
+             <th width="100">{{ x.g_email }}</th>
+             <th width="250">{{ x.g_address }}</th>
+             <th width="100">{{ x.g_mobile }}</th>
+             <th width="250">{{ x.g_message }}</th>
+             <th width="250">{{ x.g_publish }}</th>
+         </tr>
+     {% endfor %}
+   </table>
+     {% else %}
+           <h1 style="font-family: Gabriola;color: #3f51b5;text-align: center">Suggestions are not available... ~:</h1>
+     {% endif %}
+
+ </body>
+</html>

@@ -1,0 +1,406 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title>Administrator Page</title>
+    <style>
+.logo  /*city administration logo*/
+    {
+          color: black;
+          font-size: 15px;
+          font-family: Cambria;
+          margin-left: 8%;
+          margin-top: -1.5%
+    }
+
+nav
+{
+    width: 100%;
+    overflow: visible;
+    position: fixed;
+    top: 0;
+    box-shadow: 1px 2px 4px gray;
+    background: rgba(222, 222, 222, 0.2);
+
+}
+.nav1
+{
+
+    background-color: black;
+    margin-bottom: 0px;
+    color: white;
+    height: 382px;
+    width: 100%;
+}
+        .modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1);
+        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+        text-align: center;
+    }
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 1rem 1.5rem;
+        width: 24rem;
+        height: 12rem;
+        border-radius: 0.5rem;
+    }
+    .close-button {
+        float: right;
+        width: 1.5rem;
+        line-height: 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        background-color: lightgray;
+    }
+    .close-button:hover {
+        background-color: darkgray;
+    }
+    .show-modal {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.0);
+        transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    }
+    .button1:hover{
+        background-color: darkgreen;
+    }
+
+  .shareIdea
+   {
+       height: 55%;
+       width: 21%;
+       float: left;
+       margin-left: 13%;
+       margin-top: 3%;
+       text-align: center;
+       cursor:pointer;
+
+   }
+   .issueComplaint
+   {
+       height: 55%;
+       width: 21%;
+       float: left;
+       margin-left: 5%;
+       margin-top: 3%;
+       text-align: center;
+       cursor:pointer;
+   }
+   .giveSuggestion
+   {
+       height: 55%;
+       width: 21%;
+       float: left;
+       margin-left: 5%;
+       margin-top: 3%;
+       text-align: center;
+       cursor:pointer;
+   }
+   .share_box /*Name box*/
+     {
+         border: 0px solid black;
+         height: 9%;
+         width: 16%;
+         box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+         border-bottom-left-radius: 40%;
+         border-top-right-radius: 40%;
+         font-size: 25px;
+         margin-left: 15%;
+         margin-top: 3%;
+         font-family: Gabriola;
+         font-weight: bold;
+         font-size: 30px;
+         color: black;
+         background: cornsilk;
+     }
+
+   .imagesize
+   {
+        border: 0px solid crimson;
+        height : 70%;
+        width : 100%;
+        margin-top: -9.7%;
+        margin-left: -6%;
+        box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+        border-bottom-left-radius: 25%;
+        border-top-right-radius: 25%;
+   }
+/*button:hover {
+    background-color: #ffd18f;
+}
+ /* Notification Button Badge
+.notification
+{
+    text-decoration: none;
+    position: relative;
+}
+
+.notification .badge
+{
+    position: absolute;
+    top: 0px;
+    left: 120px;
+    padding: 5px 10px;
+    background: red;
+    color: white;
+    border-radius: 60px;
+
+}*/
+button
+{
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    letter-spacing: 2px;
+    font-size: 20px;
+    border-bottom-left-radius: 40%;
+    border-top-right-radius: 40%;
+
+}
+button:before
+{
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    background: skyblue;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: bottom right;
+    transform: scale(0);
+    border-bottom-left-radius: 40%;
+    border-top-right-radius: 40%;
+
+}
+button:hover:before
+{
+    transition: transform 0.5s;
+    transform-origin: top left;
+    transform: scale(1);
+}
+button:after
+{
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border: 2px solid red;
+    box-sizing: border-box;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: top left;
+    transform: scale(1);
+    border-bottom-left-radius: 40%;
+    border-top-right-radius: 40%;
+
+}
+button:hover:after
+{
+    transition: transform 0.5s;
+    transform-origin: bottom right;
+    transform: scale(0);
+}
+
+        /* Menu Hover Effect */
+ul
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 17%;
+    width: 68%;
+
+
+}
+ul li
+{
+    list-style: none;
+    width: 50%;
+
+}
+ul li a
+{
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    margin: 0px 0;
+    text-decoration: none;
+    color: #262626;
+    font-weight: bold;
+    transition: .5s;
+}
+ul li a:hover
+{
+    color: #ffffff;
+
+}
+ul li a:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    transform: scaleY(2);
+    opacity: 0;
+    transition: 0.5s;
+    z-index: -1;
+}
+ul li a:hover:before
+{
+    transform: scaleY(1.2);
+    opacity: 1;
+}
+ul li a:after
+{
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transform: scale(0);
+    transition: 0.5s;
+    z-index: -1;
+}
+ul li a:hover:after
+{
+    transform: scale(1);
+}
+
+    </style>
+</head>
+<body style="background-size: cover" background="{% static 'images/aboutus/digital-background-4799729_1920.jpg' %}">
+<div>
+    {% if request.session.emailid %}
+ <nav  class="nav-bottom">
+  <ul>
+      <li><a href="{% url 'index' %}">Home</a> </li>
+      <li><a href="{% url 'reg_details' %}">Registration Detail</a></li>
+      <li><a><h1 style="border: none;font-size: 20px; margin-top: -1%;height:
+       8px;cursor: pointer"  class="trigger"><b>Publish Project</b></h1></a></li>
+      <li><a style="margin-top: -1%" href="{% url 'ad_deleteproject' %}">View Project</a> </li>
+
+        <li><a href="{% url 'admin_logout' %}" style="width: 60%;margin-top: -2%;margin-left: 0%;">Logout</a></li>
+   </ul>
+    <div class="modal">
+      <form action="{% url 'get_publishproject' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h1>Publish Project</h1>
+            <p><input type="text" placeholder="Project Name" name="project_name" required></p>
+            <p style="margin-left: 25%"><input type="file" placeholder="Project Image" name="project_image" required></p>
+            <button type="submit" style="border-style: none;background: cornsilk;color: black;font-size: 10px;margin-top: 35%;margin-left: 30%"><b>Publish</b></button>
+        </div>
+      </form>
+      <script>
+        var modal = document.querySelector(".modal");
+        var trigger = document.querySelector(".trigger");
+        var closeButton = document.querySelector(".close-button");
+
+         function toggleModal() {
+              modal.classList.toggle("show-modal");
+          }
+          function windowOnClick(event) {
+             if (event.target === modal) {
+                 toggleModal();
+            }
+          }
+           trigger.addEventListener("click", toggleModal);
+           closeButton.addEventListener("click", toggleModal);
+           window.addE
+      </script>
+    </div>
+
+             <h2 style="margin-left: 7%">
+                <img src="{% static 'images/city_logo/copyright.png' %}" style="height: 70px;width: 70px">
+                <img src="{% static 'images/city_logo/icon.png' %}" style="height: 70px;width: 70px;margin-left: -2%">
+                 <h4 class="logo">City Administation</h4>
+             </h2>
+ </nav>
+</div>
+<div>
+    <h1 align="center" style="margin-top: 10%;height: 70px;font-family:'Gabriola';color: darkblue;font-size: 45px">Welcome Administrator </h1>
+</div>
+<div style="border: 0px solid black">
+
+<div class="shareIdea">
+    <div>
+      <img class="imagesize" src="{% static 'images/citizen_services/idea-2009484_1920.jpg' %}" >
+    </div>
+    <div>
+        <form action="{% url 'ap_shareidea' %}" method="post">
+            {% csrf_token %}
+            <a href="#" class="notification">
+                <button type="submit" class="share_box" style="margin-top: 33.5%;margin-left: 12%"><span>Share Idea</span></button>
+                <span class="badge"></span>
+            </a>
+        </form>
+    </div>
+</div>
+
+<div class="issueComplaint">
+    <div >
+      <img class="imagesize" src="{% static 'images/citizen_services/issuecomplaint-3233158_1920.jpg' %}">
+    </div>
+    <div>
+        <form action="{% url 'ap_issuecomplaint' %}" method="post">
+            {% csrf_token %}
+            <a href="#" class="notification">
+               <button type="submit" class="share_box" style="margin-top: 33.5%;margin-left: 37.5%">Issue Complaint</button>
+                  <span class="badge"></span>
+            </a>
+        </form>
+    </div>
+</div>
+
+<div class="giveSuggestion">
+    <div>
+      <img class="imagesize" src="{% static 'images/citizen_services/suggestion-4300902_1920.jpg' %}">
+    </div>
+    <div>
+        <form action="{% url 'ap_givesuggestion' %}" method="post">
+            {% csrf_token %}
+            <a href="#" class="notification">
+              <button type="submit" class="share_box" style="margin-top: 33.5%;margin-left: 62.6%">Give Suggestion</button>
+                  <span class="badge"></span>
+            </a>
+        </form>
+    </div>
+</div>
+</div>
+{% endif %}
+</body>
+</html>

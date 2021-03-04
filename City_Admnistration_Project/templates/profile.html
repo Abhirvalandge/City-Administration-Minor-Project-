@@ -1,0 +1,25 @@
+{% load staticfiles %}
+
+<div>
+  <div>
+     <h1>Profile</h1>
+  </div>
+  <div>
+  {% if data %}
+      <div>
+          <img src="{{ x.reg_profile.url }}" height="300px" width="300px">
+      </div>
+      <div>
+      {% for x in data %}
+          <h2>{{ x.name }} {{ x.lname }}</h2>
+          <p><strong>Email:</strong>{{ x.emailid }}</p>
+          <p><strong>Mobile No.:</strong>{{ x.mobileno }}</p>
+          <p><strong>Birth Date:</strong>{{ x.dob }}</p>
+          <p><strong>Gender:</strong>{{ x.gender }}</p>
+          <p><strong>Profile Image:</strong>{{ x.reg_profile }}</p>
+          <a href="#">Update Profile</a>
+      {% endfor %}
+      </div>
+      {% endif %}
+  </div>
+</div>

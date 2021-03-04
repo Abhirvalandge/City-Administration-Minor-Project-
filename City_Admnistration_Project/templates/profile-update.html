@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<html>
+  <head>
+      <style></style>
+  </head>
+  <body>
+     <h1>Profile Update</h1>
+     <div>
+        <h2>Update Your Profile</h2>
+     </div>
+     <div>
+         <h3>
+                        {% if data %}
+                            {% for x in data %}
+                                <div>
+                                   <img src="{{ x.reg_profile.url }}" height="170px" width="170px" style="margin-left: 0%">
+                                </div><br>
+                                 <input type="file" name="reg_profile" style="border: none">
+                                <form action="{% url 'myaccount' %}" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <button type="submit">Upload</button>
+                                </form>
+                                <strong style="color: deeppink;padding-left: 0%">Name :~ </strong><br><h2>{{ x.name }} {{ x.lname }}</h2><br><br>
+                                <strong style="padding-left: 0%;color: deeppink;">  Eamil id :~</strong><br><h2>{{ x.emailid }}</h2><br><br>
+                                <strong style="padding-left: 0%;color: deeppink;">Mob. No. :~ </strong><br><h2>{{ x.mobileno }}</h2><br><br>
+                           {% endfor %}
+                           {% else %}
+                            <h1 style="font-family: Gabriola;color: #3f51b5;text-align: center">User Not Available...</h1>
+                        {% endif %}
+                                <form action="#" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <button type="submit">Update</button>
+                                </form>
+         </h3>
+     </div>
+     <div>
+         <a href="#">Back</a>
+     </div>
+  </body>
+</html>

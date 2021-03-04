@@ -1,0 +1,101 @@
+<html>
+  <style type="text/css">
+   .height
+   {
+       height: 50px;
+   }
+   .loginbox
+   {
+       height: 43%;
+       width: 30%;
+       border: 2px solid white;
+       margin-left: 35%;
+       margin-top: 6%;
+       text-align: center;
+       box-shadow: 8px 8px 10px 10px darkgrey;
+       border-radius: 2px;
+   }
+   .font
+   {
+       font-size: 20px;
+       width: 15%;
+   }
+   .main
+      {
+          margin-left: 70%;
+      }
+
+   nav
+   {
+    width: 100%;
+    border-bottom: 1px solid gray;
+   }
+   .logo
+    {
+          color: black;
+          font-size: 30px;
+          font-family: Cambria;
+          margin-left: 10%;
+
+          float: left;
+    }
+    .citizenname
+    {
+        font-size: 30px;
+        font-family: "Book Antiqua";
+        color: royalblue;
+    }
+
+    button
+    {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 8px 20px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+      button:hover
+      {
+          background-color: limegreen;
+      }
+  </style>
+ <body>
+  <nav>
+   <table>
+      <tr>
+        <th class="logo">City<br>Administration</th>
+      </tr>
+   </table>
+   <div class="main">
+     <table>
+       <tr class="height">
+           <th class="font"><a href="{% url 'index' %}" style="text-decoration: none">Home</a></th>
+           <th class="font"><a href="{% url 'login' %}" style="text-decoration: none">Login</a></th>
+           <th class="font">About Us</th>
+       </tr>
+     </table>
+   </div>
+  </nav>
+  <div align="center" class="loginbox">
+      <h2 class="citizenname">Login</h2>
+
+      <form action="{% url 'adlogin' %}" method="post">
+          {% csrf_token %}
+         <button type="submit">Admin Login</button>
+      </form>
+
+      <form action="{% url 'citilogin' %}" method="post">
+          {% csrf_token %}
+          <button type="submit">Citizen Login</button>
+      </form>
+
+      <h3>If you don't have account?</h3>
+      <form action="{% url 'registeration' %}" method="post">
+          {% csrf_token%}
+          <button type="submit">Registration</button>
+      </form>
+  </div>
+ </body>
+</html>

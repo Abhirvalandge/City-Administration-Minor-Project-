@@ -1,0 +1,404 @@
+{% load staticfiles %}
+<html>
+  <style type="text/css">
+   .height
+   {
+       height: 50px;
+   }
+   .font
+   {
+       font-size: 22px;
+       width: 300px;
+   }
+   .main
+      {
+          margin-left: 35%;
+      }
+   .loginbutton
+   {
+       border: 1px solid red;
+       height: 15%;
+       width: 27%;
+   }
+
+   .shareIdea
+   {
+       background: white;
+       border: 1px solid black;
+       height: 55%;
+       width: 21%;
+       float: left;
+       margin-left: 13%;
+       margin-top: -8%;
+       text-align: center;
+       box-shadow: 7px 7px 10px 10px gray;
+
+   }
+   .issueComplaint
+   {
+       background: white;
+       border: 1px solid black;
+       height: 55%;
+       width: 21%;
+       float: left;
+       margin-left: 5%;
+       margin-top: -8%;
+       text-align: center;
+       box-shadow: 7px 7px 10px 10px gray;
+   }
+   .giveSuggestion
+   {
+       background: white;
+       border: 1px solid black;
+       height: 55%;
+       width: 21%;
+       float: left;
+       margin-left: 5%;
+       margin-top: -8%;
+       text-align: center;
+       box-shadow: 7px 7px 10px 10px gray;
+   }
+   .imagesize
+   {
+        height : 55%;
+        width : 95%;
+        box-shadow: 2px 2px 2px 2px gray;
+
+   }
+
+      /* Popup Window Modal CSS Coding*/
+*
+{
+    margin: 2px;
+    padding: 0px;
+    font-family: "Times New Roman",sans-serif;
+}
+.modal-open
+{
+    padding: 8px 16px;
+    font-size: 20px;
+    color: black;
+    border-radius: 10px;
+    outline: none;
+    border: 0px solid black;
+}
+.modal
+{
+  position: fixed;
+  background-color: rgba(0,0,0,0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: none;
+
+}
+.modal-content
+{
+    background: white;
+    margin-top: 180px;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    border-radius: 1px;
+    z-index: 4;
+}
+.modal-close
+{
+  color: rgba(143, 143, 148, 0.36);
+  line-height: 30px;
+  font-size: 90%;
+  position: absolute;
+  right: 270px;
+  text-align: center;
+  top: 85px;
+  width: 50px;
+  text-decoration: none;
+}
+.modal-close:hover
+{
+  color: #000;
+}
+
+.modal-body
+{
+    color: black;
+    background-color: white;
+    padding: 20px 0;
+    height: 200px;
+    width: 300px;
+    margin-left: 11%;
+}
+.modal-footer
+{
+    padding: 15px 0;
+}
+.modal-footer .modal-close
+{
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    color: black;
+}
+
+@keyframes modal-open {
+from{
+    opacity: 0;
+}
+    to{
+        opacity: 1;
+    }
+}
+
+/* Scrolling Section CSS Coding*/
+html{
+    scroll-behavior: smooth;
+}
+nav{
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+    border-bottom: 1px solid gray;
+}
+a{
+    padding: 10px;
+    width: 170px;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+
+}
+
+.bg-image{
+    background-image: url("{% static 'images/Textureimage/84+ Minimalist Desktop Wallpapers on WallpaperPlay.jpg' %}");
+    height: 100%;
+    width: 100%;
+}
+.citizenservice-image{
+    height: 100%;
+    width: 100%;
+}
+
+
+#section1{
+    height: 100%;
+    display:inline-block;
+    width: 100%;
+}
+#section2{
+    height: 120%;
+    background-image: url("{% static 'images/Textureimage/Retro desktop wallpaper pictures colorful_.jpg' %}");
+    display:inline-block;
+    width: 100%;
+}
+#section3{
+    height: 100%;
+    background: green;
+    display:inline-block;
+    width: 100%;
+}
+#section5{
+    height: 100%;
+    background: skyblue;
+    display:inline-block;
+    width: 100%;
+}
+.contact{
+    background-color: #aaaaaa;
+    margin-bottom: 0px;
+    color: #f8edff;
+    height: 55%;
+    width: 100%;
+}
+
+h1{
+    margin: 140px;
+    text-align: center;
+}
+.border
+{
+    border: solid 1px;
+    width: 120px;
+    height: 80px;
+}
+      .logo
+      {
+          color: black;
+          font-size: 30px;
+          font-family: Cambria;
+          margin-left: -40%;
+          float: left;
+
+      }
+
+  </style>
+</head>
+ <body>
+
+ <nav>
+   <table align="center">
+    <tr>
+        <th height="50" width="1500" class="logo">City<br>Administration</th>
+    </tr>
+   </table>
+   <div class="main">
+     <table>
+       <tr class="height">
+           <th class="font"><a href="#section1" style="text-decoration: none">Home</a></th>
+           <th class="font"><a href="#section2">Citizen Services</a></th>
+           <th class="font"><a href="{% url 'login' %}" style="text-decoration: none">Login</a></th>
+           <th class="font"><a href="#section5">Contact Us</a> </th>
+           <th class="font"><a href="{% url 'aboutus' %}" style="text-decoration: none">About Us</a></th>
+       </tr>
+     </table>
+   </div>
+ </nav>
+
+         <div id="section1" class="bg-image">
+               <h1>Home section</h1>
+         </div>
+
+        <!-- Citizen Services Coding -->
+
+<div id="section2" class="citizenservice-image">
+                <h1>Citizen Services Section</h1>
+  <div>
+      <div>
+        <div class="shareIdea">
+              <!-- FIRST CITIZEN SERVICE (Share Idea) -->
+<!--MOdal Buttons-->
+          <h3 class="modal-open" data-modal="modal1">Share Idea</h3>
+            <h2><img src="{% static 'images/homeimages/4k pc wallpaper hd (3840x2160).jpg' %}" class="imagesize"></h2>
+<!--Modals-->
+          <div class="modal" id="modal1">
+              <div class="modal-content">
+                  <div>Share Idea</div>
+
+                  <div class="modal-body">
+                      <h3> Login Your Account<br><br>
+                           <input type="text" name="l1" placeholder="Enter User id"
+                                                                  required><br><br>
+                           <input type="password" name="p1" placeholder="Password"
+                                                                  required align="center"><br><br>
+                           <form action="{% url 'shareIdea' %}">
+                               {% csrf_token %}
+                                 <button type="submit" class="loginbutton">Login</button><br>
+                           </form>
+                      </h3>
+                      <h5 style="text-indent: 55%"><a href="{% url 'registeration' %}">Register</a></h5>
+                  </div>
+                  <div class="modal-close">
+                      <h3 class="link modal-close">X</h3>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+<!-- SECOND CITIZEN SERVICE (Issue Complaint) -->
+
+      <div class="issueComplaint">
+
+            <h3 class="modal-open" data-modal="modal2" id="issue1">Issue Complaint</h3>
+              <h2><img src="{% static 'images/homeimages/Tumblr hipster photos hd wallpapers_.jpg' %}" class="imagesize"></h2>
+
+           <div class="modal" id="modal2">
+              <div class="modal-content">
+                  <div class="modal-header">Issue Complaint</div>
+                  <div class="modal-body">
+                     <h3> Login Your Account<br><br>
+                           <input type="text" name="l1" placeholder="Enter User id"
+                                                                    required><br><br>
+                           <input type="password" name="p1" placeholder="Password"
+                                                                    required align="center"><br><br>
+                          <form action="{% url 'issueComp' %}">
+                              {% csrf_token %}
+                               <button type="submit" class="loginbutton">Login</button><br>
+                          </form>
+                     </h3>
+                      <h5 style="text-indent: 55%"><a href="{% url 'registeration' %}">Register</a></h5>
+                  </div>
+
+                  <div class="modal-close">
+                      <h3 class="link modal-close">X</h3>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+<!-- THIRD CITIZEN SERVICE (Create Suggestion) -->
+
+      <div class="giveSuggestion">
+          <!-- Trigger/Open The Modal -->
+          <h3 class="modal-open" data-modal="modal3" id="suggestion1">Give Suggestion</h3>
+             <h2><img src="{% static 'images/Textureimage/84+ Minimalist Desktop Wallpapers on WallpaperPlay.jpg' %}" class="imagesize"></h2>
+
+           <div class="modal" id="modal3">
+              <div class="modal-content">
+                  <div class="modal-header">Give Suggestion</div>
+
+                  <div class="modal-body">
+                    <h3> Login Your Account<br><br>
+                            <input type="text" name="l1" placeholder="Enter User id"
+                                                     required><br><br>
+                             <input type="password" name="p1" placeholder="Password"
+                                                     required align="center"><br><br>
+                       <form action="{% url 'giveSugg' %}">
+                             {% csrf_token %}
+                               <button type="submit" class="loginbutton">Login</button><br>
+                       </form>
+                    </h3>
+                    <h5 style="text-indent: 55%"><a href="{% url 'registeration' %}">Register</a></h5>
+                  </div>
+
+                  <div class="modal-close">
+                      <h3 class="link modal-close">X</h3>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+<!-- JavaScript Coding for Popup Window Modal-->
+
+    <script >
+              //geeting modal opening buttond
+           var modalBtns = document.querySelectorAll(".modal-open");
+
+           modalBtns.forEach(function(btn)
+            {
+                btn.onclick = function () {
+                var modal = btn.getAttribute("data-modal");
+
+                 document.getElementById(modal).style.display = "block";
+                       };
+            });
+
+            var closeBtns = document.querySelectorAll(".modal-close");
+
+                 closeBtns.forEach(function (btn) {
+                  btn.onclick =function () {
+                 var modal = (btn.closest(".modal").style.display = "none");
+                           };
+            });
+
+                window.onclick = function (e) {
+                if (e.target.className === "modal") {
+                e.target.style.display = "none";
+                            }
+             };
+    </script>
+      </div>
+  </div>
+</div>
+
+      <div id="section5">
+         <h1>Contact Section</h1>
+     </div>
+
+ </body>
+</html>

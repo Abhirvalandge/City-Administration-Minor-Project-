@@ -1,0 +1,841 @@
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/aboutus.css' %}">
+    <link rel="stylesheet" href="{% static 'css/citizen_services_hover.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/button_hover_effect.css' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Administration</title>
+    <style type="text/css">
+      .citizenname
+    {
+        font-size: 20px;
+        font-family: "Book Antiqua";
+        color: royalblue;
+
+    }
+    input
+    {
+        border: none;
+        border-bottom: 1px solid black;
+    }
+
+     .shareIdea
+   {
+       height: 55%;
+       width: 21%;
+       float: left;
+       margin-left: 13%;
+       margin-top: -8%;
+       text-align: center;
+       box-shadow: 7px 7px 5px 5px gray;
+       background-color: white;
+       cursor:pointer;
+
+   }
+   .issueComplaint
+   {
+       height: 55%;
+       width: 21%;
+       float: left;
+       margin-left: 5%;
+       margin-top: -8%;
+       text-align: center;
+       box-shadow: 7px 7px 5px 5px gray;
+       background-color: white;
+       cursor:pointer;
+   }
+   .giveSuggestion
+   {
+       height: 55%;
+       width: 21%;
+       float: left;
+       margin-left: 5%;
+       margin-top: -8%;
+       text-align: center;
+       box-shadow: 7px 7px 5px 5px gray;
+       background-color:white;
+       cursor:pointer;
+   }
+   .imagesize
+   {
+        height : 65%;
+        width : 111.8%;
+        margin-top: -9.8%;
+        margin-left: -6%;
+   }
+
+html{
+    scroll-behavior: smooth;
+}
+.nav1{
+
+    background-color: black;
+    margin-bottom: 0px;
+    color: white;
+    height: 382px;
+    width: 100%;
+}
+.a1{
+    padding: 7px;
+    min-width: 130px;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+}
+nav{
+    width: 100%;
+    overflow: visible;
+    position: fixed;
+    top: 0;
+    box-shadow: 1px 2px 4px gray;
+    background-image: url("{% static 'images/backgrounds' %}");
+}
+ul
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 17%;
+    width: 62%;
+}
+ul li
+{
+    list-style: none;
+    width: 70%;
+
+}
+ul li a
+{
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    margin: 0px 0;
+    text-decoration: none;
+    color: #262626;
+    font-weight: bold;
+    transition: .5s;
+}
+ul li a:hover
+{
+    color: #ffffff;
+
+}
+ul li a:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    transform: scaleY(2);
+    opacity: 0;
+    transition: 0.5s;
+    z-index: -1;
+}
+ul li a:hover:before
+{
+    transform: scaleY(1.2);
+    opacity: 1;
+}
+ul li a:after
+{
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transform: scale(0);
+    transition: 0.5s;
+    z-index: -1;
+}
+ul li a:hover:after
+{
+    transform: scale(1);
+}
+
+
+.bg-image
+{
+    background-image: url("{% static 'images/backgrounds/' %}");
+    height: 50px;
+}
+#section1{
+    height: 105%;
+    display:inline-block;
+    width: 100%;
+    /*background-color: mediumturquoise;*/
+    background-image: url("{% static 'images/homeimages/wallpaper-4890663_1920.jpg' %}");
+    color: black;
+    background-size: auto;
+
+}
+#section2{
+    height: 105%;
+    background-image: url("{% static 'images/aboutus/pink-1311251_1920.jpg' %}");
+    display:inline-block;
+    background-size: cover;
+    width: 100%;
+}
+#section3
+{
+    height: 105%;
+    background-image: url("{% static 'images/citizen_services/background-2462434_1920.jpg' %}");
+    background-size: auto;
+    display:inline-block;
+    width: 100%;
+    margin-left: 0%;
+}
+ #section5 .layer12
+    {
+        height: 102%;
+        display:inline-block;
+        width: 100%;
+        background: url("{% static 'images/contact/spring-4809827_1280.png'  %}");
+        /*background: #86bbbe;*/
+        background-attachment: fixed;
+        background-size: cover;
+        transition: 2s;
+    }
+    #section5 .layer1
+    {
+        position: absolute;
+        margin-top: 27%;
+        margin-left: 50%;
+        transform: translate(-50%,-50%);
+        width: 500px;
+        background: transparent;
+        color: black;
+        height: 63%;
+        padding-left: 8%;
+        padding-top: -3%;
+        padding-bottom: -7%;
+        background-position: center;
+        z-index: 1;
+        transition: 2s;
+        border-radius: 5%;
+    }
+
+    .layer1:hover ~ .layer12
+    {
+        filter:blur(10px);
+    }
+    .layer1:hover
+    {
+        box-shadow: 0 25px 60px rgba(0,0,0,.8);
+    }
+   .contact{
+    background-color: #aaaaaa;
+    margin-bottom: 0px;
+    color: #f8edff;
+    height: 50%;
+    width: 100%;
+}
+#contactus
+    {
+        height: 60%;
+        width: 100%;
+    }
+    #contactdata
+    {
+        margin-top: 12%;
+        margin-left: -11%;
+    }
+    .img-wrap{
+        alignment: right;
+        margin-left: 60%;
+        margin-top: -54%;
+    }
+    .img-wrap img
+    {
+        padding: 12px;
+        border-radius: 50%;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+h1{
+    margin: 140px;
+    text-align: center;
+}
+
+  <!-- popup window -->
+
+      /* Popup Window Modal CSS Coding*/
+*
+{
+    margin: 2px;
+    padding: 0px;
+    font-family: "Times New Roman",sans-serif;
+}
+.modal-open
+{
+    padding: 8px 16px;
+    font-size: 20px;
+    color: black;
+    border-radius: 10px;
+    outline: none;
+    border: 0px solid black;
+}
+.modal
+{
+  position: fixed;
+  background-color: rgba(0,0,0,0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: none;
+
+}
+.modal-content
+{
+    background: white;
+    margin-top: 160px;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    border-radius: 1px;
+    z-index: 4;
+}
+.modal-close
+{
+  color: rgba(143, 143, 148, 0.43);
+  line-height: 30px;
+  font-size: 90%;
+  position: absolute;
+  right: 276px;
+  text-align: center;
+  top: 75px;
+  width: 50px;
+  text-decoration: none;
+}
+.modal-close:hover
+{
+  color: #000;
+}
+
+.modal-body
+{
+    color: black;
+    background-color: white;
+    padding: 20px 0;
+    height: 38%;
+    margin-top: -10%;
+}
+.modal-footer .modal-close
+{
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    color: black;
+    cursor: pointer;
+}
+
+@keyframes modal-open {
+from{
+    opacity: 0;
+}
+    to{
+        opacity: 1;
+    }
+}
+
+<!-- popup window -->
+/* Drop Down */
+  .dropdown {
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 4%;
+  box-shadow: 1px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: -15px -10px;
+  z-index: 1;
+  margin-left: 0%;
+  margin-top: 1%;
+  size: 10px;
+  width: 18%;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+}
+
+/* Drop Down */
+
+/* Drop Down Arrow */
+#i {
+  border: solid #010101;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: 8%;
+
+}
+ .down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+
+                  /*IMAGE SLIDSHOW*/
+
+.mySlides
+{
+    display: none;
+}
+.img_slideshow
+{
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+    box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+    border-bottom-right-radius: 5%;
+    border-top-left-radius: 5%;
+    border-bottom-left-radius: 25%;
+    border-top-right-radius: 25%;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: -5px 0px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: smoke;
+  -webkit-animation-duration: 1.5s;
+  animation-name: smoke;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+                /*IMAGE SLIDESHOW FINISH*/
+        .logo
+      {
+          color: black;
+          font-size: 10px;
+          font-family: Cambria;
+          margin-left: 5%;
+          float: initial;
+      }
+/* Home Section*/
+             .homesection
+        {
+            height: 55%;
+            width: 37%;
+            border: 0px solid white;
+            margin-left: 60%;
+            margin-top: 17%;
+            text-align: center;
+            box-shadow: 0 15px 20px transparent;
+            border-radius: 2px;
+            border-bottom-left-radius: 0%;
+            border-bottom-right-radius: 10%;
+            border-top-left-radius: 10%;
+            border-top-right-radius: 0%;
+        }
+        .city_content
+        {
+            margin-top: -25%;
+            margin-left: 6%;
+        }
+
+
+/*Responsive size for every screen*/
+
+/* @media only screen and (max-width: 350px)
+ {
+    For Sourabh Laptop
+    .shareIdea, .issueComplaint, .giveSuggestion,.logo, .img_slideshow, .city_content,
+    .imagesize, .homesection, .contact, .modal, .dropdown, .nav1, .slideshow-container,
+    .input_box, .mySlides, .dropdown-content, .dot, .modal-close, .modal-body, .modal-open,
+    .fade, .active, .aboutus_border, .text, .modal-footer
+    {
+        width: 100%;
+
+    }
+ };
+ @media screen
+      and (min-device-width: 1100px)
+      and (max-device-width: 1600px )
+      and (-webkit-min-device-pixel-ratio: 1) {
+ }
+
+ @media screen
+      and (min-device-width: 1100px)
+      and (max-device-width: 1600px )
+      and (-webkit-min-device-pixel-ratio: 2)
+      and (min-resolution: 192dpi) {
+ }*/
+
+</style>
+</head>
+<body>
+    <nav class="nav-bottom">
+        <ul>
+            <li><a href="#section1" class="a1">Home</a> </li>
+            <li><a href="#section2" class="a1">Citizen Services</a> </li>
+            <div class="dropdown"><li><a class="a1">Login<i class="down" id="i"></i> </a></li>
+               <div class="dropdown-content" id="dropdiv">
+                   <p><a class="a1" href="{% url 'citilogin' %}">Citizen Login</a></p>
+                   <p><a class="a1" href="{% url 'adlogin' %}">Admin Login</a> </p>
+               </div>
+            </div>
+            <li><a class="a1" href="#section3" >About Us</a></li>
+            <li><a class="a1" href="#section5">Contact Us</a> </li>
+
+        </ul>
+        <h2 style="margin-left: 7%">
+                <img src="{% static 'images/city_logo/copyright.png' %}" style="height: 70px;width: 70px">
+                <img src="{% static 'images/city_logo/icon.png' %}" style="height: 70px;width: 70px;margin-left: -2%">
+                <h4 style="margin-left: 8%;margin-top: -1.5%;font-family: Sylfaen ">City Administation</h4>
+        </h2>
+    </nav>
+  <div id="section1" class="bg-image">
+     <div class="homesection" id="imagesize_homesection">
+
+              <div class="slideshow-container">
+                    <div class="mySlides fade">
+                         <img class="img_slideshow" src="{% static 'images/slideshow_images/42276.jpg' %}">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img class="img_slideshow" src="{% static 'images/slideshow_images/191560.jpg' %}">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img class="img_slideshow" src="{% static 'images/slideshow_images/211185.jpg' %}">
+                    </div>
+                    <div style="text-align:center;margin-top: -30px">
+                         <span class="dot"></span>
+                         <span class="dot"></span>
+                         <span class="dot"></span>
+                    </div>
+              </div>
+         <script>
+            var slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++)
+            {
+              slides[i].style.display = "none";
+             }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+            }
+               slides[slideIndex-1].style.display = "block";
+               dots[slideIndex-1].className += " active";
+               setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+         </script>
+
+     </div>
+
+      <div class="city_content">
+          <h2 style="font-size: 40px;font-family: 'Book Antiqua'">City<br>Administration</h2>
+          <p style="font-size: 23px;font-family: Cambria;">
+              ~	To create an online platform where people can share ideas, issue - complaints, <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;create suggestion/petitions for improvement of
+              city administration.
+          </p>
+      </div>
+ </div>
+
+ <!-- Citizen Services Coding -->
+
+ <div id="section2">
+     <h1 style="margin-top: 13%">Citizen Services</h1>
+     <div >
+         <div>
+         <form action="{% url 'popup_login_shareIdea' %}" method="post" enctype="multipart/form-data">
+                               {% csrf_token %}
+             <div class="shareIdea">
+                 <!-- FIRST CITIZEN SERVICE (Share Idea) -->
+                 <!--MOdal Buttons-->
+                 <h3 class="modal-open" data-modal="modal1">
+                    <img src="{% static 'images/citizen_services/idea-2009484_1920.jpg' %}" class="imagesize"><br>
+                  <div class="container11">
+                   <div class="card">
+                     <div>
+                       <h4 style="margin-top: -7%;color: black">Share Idea</h4>
+                       <h5 style="margin-top: 2%;font-weight: lighter">Share your Idea to improve governance and public services and
+                     make city smart through area-based development.</h5>
+                     </div>
+                   </div>
+                  </div>
+                 </h3>
+
+                 <!--Modals-->
+                 <div class="modal" id="modal1">
+                     <div class="modal-content">
+                         <h2 style="font-family: Cambria;color: crimson;font-size: 30px">Share Idea</h2>
+                         <div class="modal-body">
+                           <h2 class="citizenname">Login</h2>
+                             <input type="text" name="emailid" placeholder="Enter User id"
+                                    required><br><br>
+                             <input type="password" name="password" placeholder="Password"
+                                    required align="center"><br><br>
+
+                             <button class="button" type="submit" style="width: 110px;margin-top: -3%;margin-left: 0%"><span class="a">Login</span></button>
+
+                              <h4 style="margin-top: 16%">If you don't have account?</h4>
+                             <h3><a href="{% url 'registeration' %}"
+                                 style="text-decoration: none;margin-top: -5%">Register</a></h3>
+                               {% if messageSI %}
+                                  <h2 style="font-size: 27px;font-family: 'Gabriola';color: deeppink;margin-top: -5%"><b>{{ messageSI }}</b></h2>
+                               {% endif %}
+                         </div>
+                         <div class="modal-close">
+                             <h3 class="link modal-close">X</h3>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </form>
+             <!-- SECOND CITIZEN SERVICE (Issue Complaint) -->
+         <form action="{% url 'popup_login_issuecomplaint' %}" method="post" enctype="multipart/form-data">
+             {% csrf_token %}
+             <div class="issueComplaint">
+                 <h3 class="modal-open" data-modal="modal2"  id="issue1">
+                   <img src="{% static 'images/citizen_services/issuecomplaint-3233158_1920.jpg' %}" class="imagesize"><br><br>
+                     <div class="container12">
+                      <div class="card" style="margin-top: -7%">
+                          <div>
+                            <h4 style="margin-top: -7%;color: black">Issue Complaint</h4>
+                            <h5 style="margin-top: 3%;font-weight: lighter">If you have issue regarding to a city, so complaint here.</h5>
+                          </div>
+                      </div>
+                 </h3>
+               </div>
+                 <div align="center" class="modal" id="modal2">
+                     <div class="modal-content">
+                         <h2 style="font-family: Cambria;color: crimson;font-size: 30px">Issue Complaint</h2>
+                         <div class="modal-body">
+                           <h2 class="citizenname">Login</h2>
+                             <input type="text" name="emailid" placeholder="Enter User id"
+                                    required><br><br>
+                             <input type="password" name="password" placeholder="Password"
+                                    required align="center"><br><br>
+                             <form action="{% url 'issueComp' %}">
+                               {% csrf_token %}
+                              <button class="button" type="submit" style="width: 110px;margin-top: -3%;margin-left: 0%"><span class="a">Login</span></button>
+
+                              <h4 style="margin-top: 16%">If you don't have account?</h4>
+                             <h3><a href="{% url 'registeration' %}"
+                                 style="text-decoration: none;margin-top: -5%">Register</a></h3>
+                               {% if messageSI %}
+                                  <h2 style="font-size: 27px;font-family: 'Gabriola';color: deeppink;margin-top: -5%"><b>{{ messageSI }}</b></h2>
+                               {% endif %}
+                             </form>
+                         </div>
+
+                         <div class="modal-close">
+                             <h3 class="link modal-close" style="cursor: pointer">X</h3>
+                         </div>
+                     </div>
+                 </div>
+         </form>
+             <!-- THIRD CITIZEN SERVICE (Create Suggestion) -->
+         <form action="{% url 'popup_login_givesuggestion' %}" method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+             <div class="giveSuggestion">
+                 <!-- Trigger/Open The Modal -->
+
+                 <h3 class="modal-open" data-modal="modal3" id="suggestion1">
+                     <img src="{% static 'images/citizen_services/suggestion-4300902_1920.jpg' %}" class="imagesize"><br><br>
+                    <div class="container13">
+                      <div class="card" style="margin-top: -7%">
+                          <div>
+                             <h4 style="margin-top: -7%;color: black;">Give Suggestion</h4>
+                             <h5 style="margin-top: 3%;font-weight: lighter">Give your suggestion about a city development project.</h5>
+                          </div>
+                      </div>
+                 </h3>
+                 <div class="modal" id="modal3">
+                     <div class="modal-content">
+                        <h2 style="font-family: Cambria;color: crimson;font-size: 30px">Give Suggestion</h2>
+                         <div class="modal-body">
+                           <h2 class="citizenname">Login</h2>
+                             <input type="text" name="emailid" placeholder="Enter User id"
+                                    required><br><br>
+                             <input type="password" name="password" placeholder="Password"
+                                    required align="center"><br><br>
+                             <form action="{% url 'giveSugg' %}" method="post">
+                               {% csrf_token %}
+                              <button class="button" type="submit" style="width: 110px;margin-top: -3%;margin-left: 0%"><span class="a">Login</span></button>
+                             </form>
+                              <h4 style="margin-top: 16%">If you don't have account?</h4>
+                             <h3><a href="{% url 'registeration' %}"
+                                 style="text-decoration: none;margin-top: -5%">Register</a></h3>
+                               {% if messageSI %}
+                                  <h2 style="font-size: 27px;font-family: 'Gabriola';color: deeppink;margin-top: -5%"><b>{{ messageSI }}</b></h2>
+                               {% endif %}
+
+                         </div>
+
+                         <div class="modal-close">
+                             <h3 class="link modal-close">X</h3>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </form>
+             <!-- JavaScript Coding for Popup Window Modal-->
+
+             <script >
+                 //geeting modal opening buttond
+                 var modalBtns = document.querySelectorAll(".modal-open");
+
+                 modalBtns.forEach(function(btn)
+                 {
+                     btn.onclick = function () {
+                         var modal = btn.getAttribute("data-modal");
+
+                         document.getElementById(modal).style.display = "block";
+                     };
+                 });
+
+                 var closeBtns = document.querySelectorAll(".modal-close");
+
+                 closeBtns.forEach(function (btn) {
+                     btn.onclick =function () {
+                         var modal = (btn.closest(".modal").style.display = "none");
+                     };
+                 });
+
+                 window.onclick = function (e) {
+                     if (e.target.className === "modal") {
+                         e.target.style.display = "none";
+                     }
+                 };
+             </script>
+         </div>
+     </div>
+ </div>
+ <div id="section3" >
+     <div class="box">
+              <img  src="{% static 'images/aboutus/quote.png' %}" style="width: 50px;height: 50px;padding: 15px 15px;margin-top: 64%;line-height: 80px !important;margin-left: 82%;z-index: 1;position: absolute;background-color: white">
+         <!--<i class="fa fa-quote-left fa2" aria-hidden="true"></i>-->
+                <div class="text">
+             <div>
+                  <img src="{% static 'images/aboutus/right-quotation-mark.png' %}" style="width: 50px;height: 50px;padding: 15px 15px;position: absolute;margin-top: -9.5%;margin-left: -50%;background-color: white">
+
+                <!-- <i class="fa fa-quote-right fa1" aria-hidden="true"></i>-->
+                 <h1 style="font-family: Gabriola;font-size: 45px">About Us</h1>
+                 <p style="font-size: 20px;margin-top: -5%">
+                    City administration is a web based application. <br>It is a user-friendly
+                    online interface for citizens to communicate with administrative body
+                    and reduce the distance and time barrier between citizens and administration.
+                    This application creates an online platform where people can share ideas,
+                    issue complaints, create suggestion/petitions for improvement of city administration.
+                 </p>
+                </div>
+         </div>
+         <img class="img_size" src="{% static 'images/aboutus/' %}">
+     </div>
+ </div>
+
+    <!-- Contact Us -->
+  <div id="section5">
+    <div class="layer1">
+       <div id="contactus">
+         <div id="contactdata">
+
+            <h2 style="font-size: 28px;font-family: 'Cambria';"><b>Address <img src="{% static 'images/contact/location2.png' %} " style="height: 20px;width: 20px"></b></h2>
+            <p style="font-size: 17px;font-family: Century;"><b>Burhanpur Municipal Corporation Office,<br> Near Stadium Ground, Burhanpur[M.P.]<br> Pincode:450331</b></p>
+
+            <h2 style="font-size: 28px;font-family: 'Cambria'">Phone No. <img src="{% static 'images/contact/phone2.png' %} " style="height: 20px;width: 20px"></h2>
+            <p style="font-size: 17px;font-family: Century;"><b>Sourabh Landge:&nbsp;8770341439<br>Abhirva Landge:&nbsp;9131994504</b></p>
+
+            <h2 style="font-size: 28px;font-family: 'Cambria'">Email <img src="{% static 'images/contact/email.png' %} " style="height: 20px;width: 20px"></h2>
+            <p style="font-size: 17px;font-family: Century;"><b>lsourabh84@gmail.com<br>abhirvalandge44@gmail.com</b></p>
+         </div>
+       </div>
+
+       <div class="img-wrap">
+           <img src="{% static 'images/backgrounds/scrapbook-1894944_1920.jpg' %}" style="height: 300px;width: 350px"></img>
+           <h2 style="color: black;margin-left: 40%;margin-top: -89%;font-size: 35px">CONTACT&nbsp;US</h2>
+       </div>
+    </div>
+    <div class="layer12"></div>
+  </div>
+
+ </body>
+</html>

@@ -1,0 +1,321 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/' %}">
+</head>
+
+  <style type="text/css">
+    button
+    {
+        background-color: lavender;
+        border: none;
+        color: black;
+        padding: 8px 20px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        border: 2px solid crimson;
+    }
+      button:hover
+      {
+          background-color: crimson;
+      }
+      .logo
+    {
+          color: black;
+          font-size: 15px;
+          font-family: Cambria;
+          margin-left: 8%;
+          margin-top: -1.5%
+    }
+    .citizenname
+    {
+        font-size: 30px;
+        font-family: "Book Antiqua";
+        color: royalblue;
+    }
+    input
+    {
+        border: none;
+        border-bottom: 1px solid black;
+    }
+html{
+    scroll-behavior: smooth;
+}
+
+nav{
+    width: 100%;
+    overflow: visible;
+    position: fixed;
+    top: 0;
+    box-shadow: 1px 2px 4px gray;
+    background: rgba(222, 222, 222, 0.2);
+
+}
+.nav1{
+
+    background-color: black;
+    margin-bottom: 0px;
+    color: white;
+    height: 382px;
+    width: 100%;
+}
+ul
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 53%;
+    width: 55%;
+}
+ul li
+{
+    list-style: none;
+    width: 20%;
+
+}
+ul li a
+{
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    margin: 0px 0;
+    text-decoration: none;
+    color: #262626;
+    font-weight: bold;
+    transition: .5s;
+}
+ul li a:hover
+{
+    color: #ffffff;
+
+}
+ul li a:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    transform: scaleY(2);
+    opacity: 0;
+    transition: 0.5s;
+    z-index: -1;
+}
+ul li a:hover:before
+{
+    transform: scaleY(1.2);
+    opacity: 1;
+}
+ul li a:after
+{
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transform: scale(0);
+    transition: 0.5s;
+    z-index: -1;
+}
+ul li a:hover:after
+{
+    transform: scale(1);
+}
+
+
+         /*Image and Black Box Coding*/
+
+     .share_image /*Image box*/
+     {
+         height: 100%;
+         width: 100%;
+         margin-top: -8%;
+         margin-left: 8%;
+         box-shadow: 7px 7px 5px 5px grey;
+         border-bottom-left-radius: 10%;
+         border-top-right-radius: 10%;
+     }
+
+     .input_box   /*Share idea all content*/
+     {
+        height: 80%;
+        width: 50%;
+        margin-left: 45%;
+        margin-top: -26%;
+     }
+     .img_border  /* border box */
+     {
+         border: 6px solid black;
+         height: 40%;
+         width: 25%;
+         margin-top: 18%;
+         margin-left: 8%;
+         border-bottom-left-radius: 10%;
+     }
+     #name_give_sugg
+      {
+          font-family: Gabriola;
+          font-size: 50px;
+          color: deeppink;
+      }
+      .project_name
+      {
+          font-size: 20px;
+          margin-top: -20%;
+      }
+.container
+{
+    max-width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;;
+    margin-top: 15%;
+    margin-left: 8%;
+    border-bottom-left-radius: 10%;
+    border-top-right-radius: 10%;
+
+}
+.container a
+{
+    position: relative;
+    display: block;
+    margin: 20px 0px;
+    padding: 0px 0px;
+    text-align: center;
+    font-size: 2em;
+    text-decoration: none;
+    color: #ffffff;
+    background: #3f51b5;
+    box-shadow: 0 15px 20px rgba(0,0,0,0.5);
+    transition: 0.5s;
+    border-bottom-left-radius: 10%;
+    border-top-right-radius: 10%;
+
+}
+.container a:hover
+{
+    background: #e97695;
+}
+.container a:before
+{
+    content: '';
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    width: 100%;
+    height: 100%;
+    background: #27b5bc;
+    z-index: -1;
+    transition: transform 0.5s ease-in-out;
+    border-bottom-left-radius: 10%;
+    border-top-right-radius: 10%;
+
+}
+.container a:nth-child(1):before
+{
+    transform-origin: right;
+    transform: scale(0);
+}
+.container a:hover:nth-child(1):before
+{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.container a:after
+{
+    content: '';
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 6px solid black;
+    z-index: -1;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+    border-bottom-left-radius: 10%;
+    border-top-right-radius: 10%;
+
+}
+.container a:hover:after
+{
+    top: -35px;
+    right: -35px;
+}
+
+  </style>
+ <body background="{% static 'images/citizen_services/map-2450477_1920.jpg' %}" style="background-size: cover">
+      <nav class="nav-bottom">
+         <ul>
+             <li><a href="{% url 'loginindex' %}">Home</a> </li>
+             <li><a href="{% url 'logout' %}">Logout</a></li>
+         </ul>
+         <h2 style="margin-left: 7%">
+                <img src="{% static 'images/city_logo/copyright.png' %}" style="height: 70px;width: 70px">
+                <img src="{% static 'images/city_logo/icon.png' %}" style="height: 70px;width: 70px;margin-left: -2%">
+                 <h4 class="logo">City Administation</h4>
+         </h2>
+      </nav>
+<div>
+    <div class="container">
+          <a href="#">
+              <img src="{% static 'images/citizen_services/suggestion-4300902_1920.jpg' %}"
+                   style="height: 300px;width: 350px;border-bottom-left-radius: 10%;
+                            border-top-right-radius: 10%;"></a>
+    </div>
+
+    <div class="input_box">
+        <div id="name_give_sugg"><b>Give Suggestion</b></div>
+        <p style="font-size: 20px;">~ Give your suggestion about a city development project.</p>
+
+      {% if projectdata %}
+          <table border="1" style="width: 820px;border-style: none">
+            <tr  bgcolor="black" style="font-family: 'Cambria Math';font-size: 22px;color: paleturquoise;height: 60px">
+                <th width="100">Project Name</th>
+                <th width="100">Project Image</th>
+                <th width="100">Give Suggestion</th>
+                <th width="100" style="display: none">Delete</th>
+
+            </tr>
+            {% for x in projectdata %}
+              <tr bgcolor="#e6e6fa">
+               <th width="250" style="font-size: 19px;font-family: Century;">{{ x.project_name }}</th>
+               <th width="100">
+                   <a href="{{ x.project_image.url }}">
+                       <img src="{{ x.project_image.url }}" width="250" height="200">
+                   </a>
+               </th>
+                  <form action="{% url 'showgiveSugg_InputFields' %}" method="post">
+                      {% csrf_token %}
+                     <th width="100"><button type="submit" style="margin-top: 3%;margin-left: 0%;width: 185px" class="button"><span>Give Suggestion</span></button></th>
+                  </form>
+               <th width="100" style="display: none">
+                <a href="{% url 'deleteproject' %}?del_no={{ x.project_name }}">
+                    <button>Yes</button>
+                </a>
+               </th>
+              </tr>
+            {% endfor %}
+          </table>
+      {% else%}
+          <h1 style="font-family: 'Monotype Corsiva';color: dodgerblue;">No Projects are Available</h1>
+      {% endif %}
+    </div>
+</div>
+
+ </body>
+</html>

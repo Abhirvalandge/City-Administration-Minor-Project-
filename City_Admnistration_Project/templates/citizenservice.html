@@ -1,0 +1,276 @@
+<html>
+<head>
+<style type="text/css">
+   .height
+   {
+       height: 50px;
+   }
+   .font
+   {
+       font-size: 20px;
+       width: 300px;
+   }
+*
+{
+    margin: 2px;
+    padding: 0px;
+    font-family: "Times New Roman",sans-serif;
+}
+.modal-open
+{
+    padding: 8px 16px;
+    font-size: 20px;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    outline: none;
+    border: 0px solid black;
+}
+.modal
+{
+  position: fixed;
+  background-color: rgba(0,0,0,0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+ display: none;
+
+}
+.modal-content
+{
+    background: white;
+    margin-top: 180px;
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    border-radius: 1px;
+    z-index: 4;
+}
+.modal-header
+{
+    font-weight: 500;
+    padding: 10px 0;
+    font-size: 26px;
+}
+.modal-header
+{
+    font-size: 20px;
+    background: white;
+    border: 0px;
+    outline: 0px;
+    padding: 5px 8px;
+
+}
+.modal-close
+{
+  color: rgba(143, 143, 148, 0.36);
+  line-height: 30px;
+  font-size: 90%;
+  position: absolute;
+  right: 200px;
+  text-align: center;
+  top: 88px;
+  width: 50px;
+  text-decoration: none;
+}
+.modal-close:hover
+{
+  color: #000;
+}
+
+.modal-body
+{
+    color: black;
+    background-color: white;
+    padding: 50px 0;
+    height: 200px;
+    width: 350px;
+}
+.modal-footer
+{
+    padding: 15px 0;
+}
+.modal-footer .modal-close
+{
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    color: black;
+}
+
+@keyframes modal-open {
+from{
+    opacity: 0;
+}
+    to{
+        opacity: 1;
+    }
+}
+</style>
+</head>
+ <body>
+  <table border="1" align="center">
+    <tr>
+        <th align="left" colspan="5" height="100" width="1500"><h1>City Administration</h1></th>
+    </tr>
+    <tr class="height">
+        <th class="font"><a href="{% url 'home' %}" style="text-decoration: none">Home</a></th>
+        <th class="font">Citizen Services</th>
+        <th class="font"><a href="{% url 'login' %}" style="text-decoration: none">Login</a></th>
+        <th class="font"><a href="{% url 'contactus' %}" style="text-decoration: none">Contact Us</a></th>
+        <th class="font"><a href="{% url 'aboutus' %}" style="text-decoration: none">About Us</a></th>
+    </tr>
+  </table>
+   <h1 align="center">Citizen Services</h1>
+  <div style="border: 1px solid black;height: 250px;width: 1500px">
+      <div align="center" style="border: 1px solid black;height: 50px;
+            width: 200px;margin-left: 150px;margin-top: 95px">
+
+         <!-- FIRST CITIZEN SERVICE (Share Idea) -->
+<!--MOdal Buttons-->
+          <h3 class="modal-open" data-modal="modal1">Share Idea</h3>
+<!--Modals-->
+          <div class="modal" id="modal1">
+              <div class="modal-content">
+                  <div class="modal-header">Share Idea</div>
+
+                  <div class="modal-body">
+                    <h3> Login Your Account<br><br>
+      <input type="text" name="l1" placeholder="Enter User id" required><br><br>
+      <input type="password" name="p1" placeholder="Password" required align="center"><br><br>
+                 <form action="{% url 'shareIdea' %}">
+                     {% csrf_token %}
+                        <button type="submit">Login</button><br><br>
+                 </form>
+      <h3>If you don't have account?</h3><br><a href="{% url 'registeration' %}">Register</a>
+                    </h3>
+                  </div>
+
+                  <div class="modal-close">
+                      <h3 class="link modal-close">X</h3>
+                  </div>
+              </div>
+          </div>
+
+<!-- SECOND CITIZEN SERVICE (Issue Complaint) -->
+
+      <div align="center" style="border: 1px solid black;height: 50px;
+            width: 200px;margin-left:500px;margin-top: -39px">
+
+            <h3 class="modal-open" data-modal="modal2">Issue Complaint</h3>
+
+           <div class="modal" id="modal2">
+              <div class="modal-content">
+                  <div class="modal-header">Issue Complaint</div>
+
+                  <div class="modal-body">
+                      <h3> Login Your Account<br><br>
+      <input type="text" name="l1" placeholder="Enter User id" required><br><br>
+      <input type="password" name="p1" placeholder="Password" required align="center"><br><br>
+                  <form action="{% url 'issueComp' %}">
+                     {% csrf_token %}
+                          <button type="submit">Login</button><br><br>
+                  </form>
+            <h3>If you don't have account?</h3><br><a href="{% url 'registeration' %}">Register</a>
+                    </h3>
+
+                  </div>
+
+                  <div class="modal-close">
+                      <h3 class="link modal-close">X</h3>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+
+<!-- THIRD CITIZEN SERVICE (Create Suggestion) -->
+
+      <div align="center" style="border: 1px solid black;height: 50px;
+            width: 200px;margin-left: 1000px;margin-top: -52px">
+
+          <!-- Trigger/Open The Modal -->
+          <h3 class="modal-open" data-modal="modal3">Give Suggestion</h3>
+
+           <div class="modal" id="modal3">
+              <div class="modal-content">
+                  <div class="modal-header">Give Suggestion</div>
+
+                  <div class="modal-body">
+                    <h3> Login Your Account<br><br>
+      <input type="text" name="l1" placeholder="Enter User id" required><br><br>
+      <input type="password" name="p1" placeholder="Password" required align="center"><br><br>
+               <form action="{% url 'giveSugg' %}">
+                     {% csrf_token %}
+                        <button type="submit">Login</button><br><br>
+               </form>
+      <h3>If you don't have account?</h3><br><a href="{% url 'registeration' %}">Register</a>
+                    </h3>
+
+                  </div>
+
+                  <div class="modal-close">
+                      <h3 class="link modal-close">X</h3>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+<!-- JavaScript Coding for Popup Window Modal-->
+
+    <script >
+              //geeting modal opening buttond
+           var modalBtns = document.querySelectorAll(".modal-open");
+
+           modalBtns.forEach(function(btn)
+            {
+                btn.onclick = function () {
+                var modal = btn.getAttribute("data-modal");
+
+                 document.getElementById(modal).style.display = "block";
+                       };
+            });
+
+            var closeBtns = document.querySelectorAll(".modal-close");
+
+                 closeBtns.forEach(function (btn) {
+                  btn.onclick =function () {
+                 var modal = (btn.closest(".modal").style.display = "none");
+                           };
+            });
+
+                window.onclick = function (e) {
+                if (e.target.className === "modal") {
+                e.target.style.display = "none";
+                            }
+             };
+    </script>
+
+      </div>
+  </div>
+  </body>
+</html>
+
+<nav>
+   <table align="center">
+    <tr>
+        <th height="50" width="1500" class="logo">City<br>Administration</th>
+    </tr>
+   </table>
+   <div class="main">
+     <table>
+       <tr class="height">
+           <th class="font"><a href="#section1" style="text-decoration: none">Home</a></th>
+           <th class="font"><a href="#section2">Citizen Services</a></th>
+           <th class="font"><a href="{% url 'login' %}" style="text-decoration: none">Login</a></th>
+           <th class="font"><a href="#section5">Contact Us</a> </th>
+           <th class="font"><a href="{% url 'aboutus' %}" style="text-decoration: none">About Us</a></th>
+       </tr>
+     </table>
+   </div>
+ </nav>

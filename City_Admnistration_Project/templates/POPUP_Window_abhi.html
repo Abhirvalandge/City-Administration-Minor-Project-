@@ -1,0 +1,135 @@
+<html>
+<head>
+<style type="text/css">
+   .height
+   {
+       height: 50px;
+   }
+   .font
+   {
+       font-size: 20px;
+       width: 300px;
+   }
+.modal-window {
+  position: fixed;
+  background-color: rgba(200, 200, 200, 0.75);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.modal-window:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-window>div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 2rem;
+  background: #fff;
+  color: #444;
+}
+
+.modal-window header {
+  font-weight: bold;
+}
+
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.modal-window h1 {
+  font-size: 150%;
+  margin: 0 0 15px;
+}
+</style>
+</head>
+ <body>
+  <table border="1" align="center">
+    <tr>
+        <th align="left" colspan="5" height="100" width="1500"><h1>City Administration</h1></th>
+    </tr>
+    <tr class="height">
+        <th class="font"><a href="{% url 'home' %}">Home</a></th>
+        <th class="font">Citizen Services</th>
+        <th class="font"><a href="{% url 'login' %}">Login</a></th>
+        <th class="font"><a href="{% url 'contactus' %}">Contact Us</a></th>
+        <th class="font"><a href="{% url 'aboutus' %}">About Us</a></th>
+    </tr>
+  </table>
+   <h1 align="center">Citizen Services</h1>
+  <div style="border: 1px solid black;height: 250px;width: 1500px">
+      <div align="center" style="border: 1px solid black;height: 60px;
+            width: 200px;margin-left: 100px;margin-top: 90px">
+
+         <!-- FIRST CITIZEN SERVICE (Share Idea) -->
+
+<!-- Trigger/Open The Modal -->
+
+        <h3><a href="#open-modal">Share Idea</a></h3>
+<div id="open-modal" class="modal-window">
+  <div>
+    <a href="#modal-close" title="Close" class="modal-close">close &times;</a>
+    <h1>Share Idea</h1>
+    <div>The quick brown fox jumped over the lazy dog.</div>
+  </div>
+</div>
+      </div>
+
+      <!-- SECOND CITIZEN SERVICE (Issue Complaint) -->
+
+      <div align="center" style="border: 1px solid black;height: 60px;
+            width: 200px;margin-left:650px;margin-top: -62px">
+
+    <h3><a href="#open-modal">Issue Compaints</a></h3>
+<div id="open-modal" class="modal-window">
+  <div>
+    <a href="#modal-close" title="Close" class="modal-close">close &times;</a>
+    <h1>Issue Complaint</h1>
+    <div>The quick brown fox jumped over the lazy dog.</div>
+  </div>
+</div>
+          </div>
+
+          <!-- THIRD CITIZEN SERVICE (Create Suggestion) -->
+
+      <div align="center" style="border: 1px solid black;height: 60px;
+            width: 200px;margin-left: 1200px;margin-top: -62px">
+
+          <!-- Trigger/Open The Modal -->
+          <h3>
+             <a href="#open-modal">Create Suggestions</a>
+          </h3>
+<div id="open-modal" class="modal-window">
+  <div>
+    <a href="#modal-close" title="Close" class="modal-close">close &times;</a>
+    <h1>Create Suggestion</h1>
+    <div>The quick brown fox jumped over the lazy dog.</div>
+  </div>
+</div>
+
+      </div>
+  </div>
+ </body>
+</html>

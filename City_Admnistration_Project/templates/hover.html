@@ -1,0 +1,116 @@
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
+        .container11
+        {
+         width: 1050px;
+         display: flex;
+         justify-content: space-between;
+        }
+        .container11 .card
+        {
+            position: relative;
+            width: 320px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.1);
+            overflow: hidden;
+            background-color: #c7c7c7;
+        }
+        .container11 .card:before
+        {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: calc(-100% + 4px);
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 1;
+            transition: 0.5s ease-in-out;
+        }
+         .container11 .card:hover:before
+         {
+             bottom:0;
+         }
+        .container11 .card:nth-child(1):before
+        {
+            background: deeppink;
+        }
+        .container11 .card:nth-child(2):before
+        {
+            background: lightseagreen;
+        }
+        .container11 .card:nth-child(3):before
+        {
+            background: deepskyblue;
+        }
+        .container11 .card div
+        {
+            position: relative;
+            z-index: 2;
+        }
+        .container11 .card div h2
+        {
+            margin-bottom: 10px;
+            font-size: 30px;
+            transition: 0.5s;
+        }
+        .container11 .card div p
+        {
+            font-size: 18px;
+            transition: 0.5s;
+            color: #777777;
+        }
+        .container11 .card div a
+        {
+            margin-top: 20px;
+            font-size: 14px;
+            display: inline-block;
+            text-decoration: none;
+            transition: 0.5s;
+            background: #ffffff;
+            color: #777777;
+            padding: 6px 10px;
+            font-weight: 600;
+            box-shadow: 0 2px 20px rgba(0,0,0,.05);
+        }
+        .container11 .card:hover div h2,
+        .container11 .card:hover div p
+        {
+            color: #bbbbbb;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container11">
+     <div class="card">
+         <div>
+             <h2>Design</h2>
+             <p>Hello What are  Doing</p>
+         </div>
+     </div>
+    <div class="card">
+         <div>
+             <h2>Design2</h2>
+             <p>Hello What are  Doing</p>
+         </div>
+     </div>
+    <div class="card">
+         <div>
+             <h2>Design3</h2>
+             <p>Hello What are  Doing</p>
+         </div>
+     </div>
+</div>
+</body>
+</html>
+
+
+
